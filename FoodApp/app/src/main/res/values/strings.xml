@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FoodApp</string>
+    <string name="titulo">Hamburguesa doble con queso</string>
+    <string name="descripcion">Nulla placerat ultrices luctus. Vivamus suscipit at justo in posuere. Praesent vehicula faucibus mauris, in sodales ipsum hendrerit quis. Nunc malesuada, ante ut convallis blandit, ligula quam commodo nulla, vel rhoncus mi nibh pellentesque erat. Sed diam elit, vulputate vel nisi at, dictum gravida sem. Pellentesque sed massa ac lacus iaculis viverra vitae ut tellus. Nulla et consectetur sem.</string>
+    <string name="price">$200</string>
+    <string name="comprar">Comprar</string>
+    <string name="tituloCompra">Compra exitosa</string>
+    <string name="textoCompra">Tu hamburguesa doble con queso ha sido comprada con éxito</string>
+</resources>

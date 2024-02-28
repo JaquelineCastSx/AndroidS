@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LayoutApp</string>
+    <string name="welcome">Welcome, Juan!</string>
+    <string name="book">Book</string>
+    <string name="our_services">Our services</string>
+    <string name="hospital">Hospital</string>
+
+    <string name="ambulance">Ambulance</string>
+    <string name="apt">Appointment</string>
+    <string name="movie_title">Toy Story</string>
+    <string name="movie_date">Jun 18 2010</string>
+    <string name="rent">Rent from $24,99</string>
+    <string name="buy">Buy from $44,99</string>
+    <string name="description">Woody, Buzz Lightyear and the rest of the crew embark on a road trip with Bonnie and her new Toy named Forky. The adventurous journey turns into an unexpected reunion as Woody\'s slight detour leads him to his long-lost friend Bo Peep. As Woody and Bo discuss the old days, they soon start to realize that they\'re worlds apart when it comes to what they want from life as a toy.</string>
+</resources>

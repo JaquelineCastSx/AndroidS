@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<ImageView
+    android:id="@+id/doctorImg"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:src="@drawable/doctor"
+    android:foreground="@color/imgForeground"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintVertical_bias="0"
+    android:scaleType="centerCrop"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideH2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <ImageButton
+        android:id="@+id/contactBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/baseline_account_circle_24"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintTop_toBottomOf="@id/guideH1"
+        app:layout_constraintBottom_toTopOf="@id/guideH2"
+        app:layout_constraintEnd_toStartOf="@id/aptBtn"
+        />
+
+    <ImageButton
+        android:id="@+id/aptBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/sharp_calendar_add_on_24"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintTop_toBottomOf="@id/guideH1"
+        app:layout_constraintBottom_toTopOf="@id/guideH2"
+        app:layout_constraintStart_toEndOf="@id/contactBtn"/>
+
+    <TextView
+        android:id="@+id/welcomeTxt"
+        android:text="@string/welcome"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintTop_toBottomOf="@id/guideH2"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintHorizontal_bias="0"/>
+
+    <Button
+        android:id="@+id/bookBtn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/book"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintBottom_toBottomOf="@id/doctorImg"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTxt"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+    <TextView
+        android:id="@+id/servicesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/our_services"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintTop_toBottomOf="@id/doctorImg"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/hospitalLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/servicesTxt"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintEnd_toStartOf="@id/AmbulanceLayout"
+        app:layout_constraintBottom_toTopOf="@id/guideH3">
+    <ImageView
+        android:src="@drawable/baseline_apartment_24"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        app:tint="@color/primaryNigth"/>
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/AmbulanceLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/servicesTxt"
+        app:layout_constraintStart_toEndOf="@id/hospitalLayout"
+        app:layout_constraintEnd_toStartOf="@id/AptLayout"
+        app:layout_constraintBottom_toTopOf="@id/guideH3">
+        <ImageView
+            android:src="@drawable/baseline_airport_shuttle_24"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            app:tint="@color/primaryNigth"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ambulance"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/AptLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/servicesTxt"
+        app:layout_constraintStart_toEndOf="@id/AmbulanceLayout"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintBottom_toTopOf="@id/guideH3"
+        >
+        <ImageView
+            android:src="@drawable/baseline_assignment_turned_in_24"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            app:tint="@color/primaryNigth"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apt"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideH3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".55"/>
+
+    <TextView
+        android:id="@+id/aptTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apt"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/guideH3"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideV1"
+        app:layout_constraintEnd_toStartOf="@id/guideV2"
+        app:layout_constraintTop_toBottomOf="@id/aptTxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <LinearLayout
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Appointment date"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Thu Feb 22 -19:00 -20:00"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Appointment date"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Thu Feb 22 -19:00 -20:00"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Appointment date"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Thu Feb 22 -19:00 -20:00"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ChowCrazeApp</string>
+    <string name="burger">Hamburguesa doble con queso</string>
+    <string name="description">Descripcion</string>
+    <string name="burger_description">Hamburguesa doble con queso, lechuga, tomate, cebolla, pepinillos, queso cheddar y salsa especial</string>
+    <string name="Add">Comprar</string>
+    <string name="Price">$200.00</string>
+    <string name="success_order">Compra exitosa</string>
+    <string name="sucess_order_text">Tu hamburguesa doble con queso ha sido comprada correctamente</string>
+    <string name="rating">4,5</string>
+    <string name="welcome_title">Hola Jaqueline!</string>
+    <string name="category_title">Nuestras categorias</string>
+    <string name="category_name_title">Nombre de categoria</string>
+    <string name="restaurantTitle">Busca los mejores restaurantes</string>
+    <string name="restaurant_name">Nombre del restaurante</string>
+    <string name="best_foods">Busca las mejores comidas</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HeroesApp</string>
+    <string name="email_address">Correo electrónico</string>
+    <string name="pass">Contraseña</string>
+    <string name="btnText">Entrar</string>
+    <string name="welcome">Welcome to your album!</string>
+    <string name="title">Choose your side</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/publisherImg"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/heroe"/>
+        <TextView
+            android:id="@+id/publisherName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publisher name"
+            android:textSize="34sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

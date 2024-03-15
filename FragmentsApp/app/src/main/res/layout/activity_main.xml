@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!--Espacio donde se inserta el fragment-->
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"

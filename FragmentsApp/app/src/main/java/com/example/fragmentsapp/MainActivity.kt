@@ -15,14 +15,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //Declara la barra de navegacion
         bottomNavbar = findViewById(R.id.bottom_nav_menu)
         val homeFragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, homeFragment).commit()
         bottomNavbar.setOnItemSelectedListener {menuItem ->
+            //Listener de la barra de navegacion que abre el fragment segun el boton donde se haga click
             when(menuItem.itemId){
                 R.id.home_menu -> {
                     Log.i(MainActivityTag, "Home seleccionado")
-                    val homeFragment = HomeFragment()
+                    //Le indica al main donde se va a insertar el fragment seleccionado
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, homeFragment).commit()
                 }
                 R.id.category_menu ->{

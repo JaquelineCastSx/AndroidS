@@ -27,7 +27,7 @@ class CategoryFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
-
+    //Uso del adapter para insertar el recycleview en el espacio del main
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val list = listOf<String>("Java", "Python", "JavaScript", "C++", "C#", "Ruby", "Go", "Swift", "PHP", "Rust")

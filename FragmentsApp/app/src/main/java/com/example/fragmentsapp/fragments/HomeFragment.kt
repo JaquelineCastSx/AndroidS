@@ -27,11 +27,23 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    //Uso del adapter para insertar el recycleview en el espacio del main
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = listOf<String>("Elemento 1","Elemento 2","Elemento 3","Elemento 4","Elemento 5","Elemento 6","Elemento 7","Elemento 8","Elemento 9","Elemento 10")
+        val languages = listOf<String>(
+            "English",
+            "Mandarin Chinese",
+            "Spanish",
+            "Hindi",
+            "Arabic",
+            "French",
+            "Bengali",
+            "Russian",
+            "Portuguese",
+            "Urdu"
+        )
         val recycleView = view.findViewById<RecyclerView>(R.id.home_recycleview)
         recycleView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        recycleView.adapter = SimpleAdapter(list)
+        recycleView.adapter = SimpleAdapter(languages)
     }
 }

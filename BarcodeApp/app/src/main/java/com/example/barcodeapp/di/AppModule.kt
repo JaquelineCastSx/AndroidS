@@ -6,7 +6,10 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.barcodeapp.data.BarcodeDB
 import com.example.barcodeapp.data.dao.ProducDAO
+import com.example.barcodeapp.data.repositories.ProductRepositoryImpl
 import com.example.barcodeapp.domain.models.Product
+import com.example.barcodeapp.domain.repositories.ProductRepositorie
+import com.example.barcodeapp.domain.use_cases.getProducts
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -52,6 +55,18 @@ object AppModule {
             context,
             BarcodeDB::class.java,
             "barcode_DB"
-        ).build()
+        ).addCallback(callback).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductRepository(db : BarcodeDB) :ProductRepositorie{
+        return ProductRepositoryImpl(db.productDao())
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetProducts(productRepository:ProductRepositorie) : getProducts{
+        return getProducts(productRepository)
     }
 }

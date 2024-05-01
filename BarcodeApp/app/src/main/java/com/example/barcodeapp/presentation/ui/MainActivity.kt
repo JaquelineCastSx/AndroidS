@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             scanCode()
         }
     observeState()
+    observeUiEvents()
     }
 private fun observeState(){
     lifecycleScope.launch {
@@ -43,13 +44,22 @@ private fun observeState(){
             mainViewModel.state.collect{
                 Log.i("Products", it.products.toString())
                 productsRecycleview = findViewById(R.id.rv_products)
-                productsRecycleview.adapter = ProductAdapter(it.products)
+                productsRecycleview.adapter = ProductAdapter(it.shoppingCartProducts)
                 productsRecycleview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
 
             }
         }
     }
 }
+    private fun observeUiEvents(){
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                mainViewModel.uiEvent.collect{message ->
+                    Toast.makeText(this@MainActivity,message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
 
     private fun scanCode(){
         val options = ScanOptions()

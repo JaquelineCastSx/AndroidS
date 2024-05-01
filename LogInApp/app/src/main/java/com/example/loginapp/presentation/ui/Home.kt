@@ -1,10 +1,9 @@
-package com.example.loginapp.activities
+package com.example.loginapp.presentation.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.loginapp.MainActivity
 import com.example.loginapp.R
 
 class Home : AppCompatActivity() {
@@ -18,7 +17,7 @@ class Home : AppCompatActivity() {
             val editor = sharedPreferences.edit()
             editor.putBoolean("isLogged", false)
             editor.apply()
-            val intent = Intent(this@Home,MainActivity::class.java)
+            val intent = Intent(this@Home, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

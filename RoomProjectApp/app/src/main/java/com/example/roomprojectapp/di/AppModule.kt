@@ -1,41 +1,35 @@
-package com.example.loginapp.di
+package com.example.roomprojectapp.di
 
-import android.content.Context
-import android.content.SharedPreferences
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.loginapp.data.LoginDb
-import com.example.loginapp.data.mockdata.MockData
-import com.example.loginapp.domain.use_cases.IsUserLogged
+import com.example.roomprojectapp.data.RoomDB
+import com.example.roomprojectapp.data.mockData.MockData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Singleton
+import android.content.Context
+import com.example.roomprojectapp.data.repositories.PlayerRepositoryImpl
+import com.example.roomprojectapp.domain.repositories.PlayerRepository
+import com.example.roomprojectapp.domain.use_cases.getPlayers
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-    fun provideSharedPreferences(@ApplicationContext context : Context) : SharedPreferences{
-        return context.getSharedPreferences("loginApp", Context.MODE_PRIVATE)
-    }
-
-    //1. Instancia volatil
     @Volatile
-    private var INSTANCE : LoginDb? = null
+    private var INSTANCE : RoomDB? = null
 
     @Provides
     @Singleton
-    //Funcion que crea la base de datos
-    fun provideDb(
+    fun provideRoomDB(
         @ApplicationContext context : Context
-    ) : LoginDb{
+    ) : RoomDB{
         return INSTANCE ?: synchronized(this){
             val instance = INSTANCE
             if(instance != null){
@@ -47,17 +41,14 @@ object AppModule {
                         super.onCreate(db)
                         CoroutineScope(Dispatchers.IO).launch {
                             val db = INSTANCE ?: return@launch
-                            val userDao = db.userDao()
-                            userDao.insertUsers(MockData.users)
+                            val playerDao = db.playerDao()
+                            playerDao.insertPlayer(MockData.players)
                         }
                     }
                 }
-                return Room.databaseBuilder(
-                    context,
-                    LoginDb::class.java,
-                    "login_db",
-                ).addCallback(callback)
-                    .build().also {
+                return Room.databaseBuilder(context.applicationContext,
+                    RoomDB::class.java,"room_DB")
+                    .addCallback(callback).build().also {
                         INSTANCE = it
                     }
             }
@@ -66,9 +57,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideIsLoggedUseCase(
-        loginDb: LoginDb
-    ):IsUserLogged{
-        return IsUserLogged(loginDb.userDao())
+    fun providePlayerRepository(db : RoomDB) :PlayerRepository{
+        return PlayerRepositoryImpl(db.playerDao())
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetPlayers(playerRepository:PlayerRepository) : getPlayers{
+        return getPlayers(playerRepository)
     }
 }

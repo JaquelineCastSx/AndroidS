@@ -19,10 +19,10 @@ class MainViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     init {
-        loadProducts()
+        loadPlayers()
     }
 
-    private fun loadProducts(){
+    private fun loadPlayers(){
         viewModelScope.launch {
             try {
                 getPlayers().collect{

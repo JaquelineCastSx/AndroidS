@@ -1,8 +1,10 @@
 package com.example.roomprojectapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -15,19 +17,28 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val mainViewModel : MainViewModel by viewModels()
+    private lateinit var btnAme : Button
+    private lateinit var btnChiv : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        observeState()
-    }
-    private fun observeState(){
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                mainViewModel.state.collect{
-                    Log.i("Products", it.players.toString())
-                }
+        btnAme = findViewById(R.id.btnAmerica)
+        btnAme.setOnClickListener {
+            val selectedTeam = 1
+            val intent = Intent(this, HomeActivity::class.java).apply {
+                putExtra("team", selectedTeam)
             }
+            startActivity(intent)
+        }
+
+        btnChiv = findViewById(R.id.btnChivas)
+        btnChiv.setOnClickListener {
+            val selectedTeam = 2
+            val intent = Intent(this, HomeActivity::class.java).apply {
+                putExtra("team", selectedTeam)
+            }
+            startActivity(intent)
         }
     }
+
 }
